@@ -10,12 +10,14 @@ class ArticleController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     public function showArticles()
     {
-        $articles = Article::with('writer')->get();
+        $articles = Article::with('writer')
+                           ->latest()
+                           ->get();
 
         return view('showArticles', compact('articles'));
     }
