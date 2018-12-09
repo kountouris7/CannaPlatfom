@@ -19,5 +19,6 @@ Auth::routes();
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('write-article', 'ArticleController@writeArticle')->name('writeArticle');
 Route::post('publish-article/{id}', 'ArticleController@store')->name('publishArticle');
+
 Route::get('show-articles', 'ArticleController@showArticles')->name('showArticles');
 
