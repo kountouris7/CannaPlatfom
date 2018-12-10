@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ArticleController extends Controller
 {
@@ -31,6 +32,19 @@ class ArticleController extends Controller
 
     public function store(Request $request, $id)
     {
+        try {
+            $this->validate($request, [
+                'title'       => 'required|max:60',
+                'body'        => 'required',
+                'description' => 'required|max:171',
+            ]);
+
+        } catch (ValidationException $e) {
+            return response()->json([
+                'message' => 'Error! Get some error handling to get done here',
+            ], 400);
+        }
+
         Article::create([
             'user_id'     => $id,
             'title'       => request('title'),
