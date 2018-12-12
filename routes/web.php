@@ -28,6 +28,11 @@ Route::get('create-permission', 'AdminController@createPermissionForm')->name('c
 Route::post('save-permission', 'AdminController@savePermission')->name('savePermission');
 Route::get('show-permissions', 'AdminController@showPermissions')->name('showPermissions');
 
+Route::get('role-permission', 'AdminController@assignPermissionToRoleForm')->name('assignPermissionToRoleForm');
+Route::post('save-role-permission', 'AdminController@savePermissionsToRole')->name('savePermissionsToRole');
+
+
+
 
 
 //writer
