@@ -18,6 +18,19 @@ Route::get('show-articles', 'ArticleController@showArticles')->name('showArticle
 
 Auth::routes();
 Route::get('home', 'HomeController@index')->name('home');
+
+//admin creating/handling roles
+Route::get('create-role', 'AdminController@createRoleForm')->name('createRoleForm');
+Route::post('save-role', 'AdminController@saveRole')->name('saveRole');
+Route::get('show-roles', 'AdminController@showRoles')->name('showRoles');
+
+Route::get('create-permission', 'AdminController@createPermissionForm')->name('createpermissionForm');
+Route::post('save-permission', 'AdminController@savePermission')->name('savePermission');
+Route::get('show-permissions', 'AdminController@showPermissions')->name('showPermissions');
+
+
+
+//writer
 Route::get('write-article', 'ArticleController@writeArticle')->name('writeArticle');
 Route::post('publish-article/{id}', 'ArticleController@store')->name('publishArticle');
 

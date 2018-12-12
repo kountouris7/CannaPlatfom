@@ -24,8 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //Role & Permission model is located in vendor/spatie
-        //$role = Role::create(['name' => 'writer']);
+
         //$permission = Permission::create(['name' => 'edit articles']);
         //$role = Role::findById(1);
         //$permission = Permission::findById(5);

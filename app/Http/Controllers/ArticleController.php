@@ -9,13 +9,13 @@ use Illuminate\Validation\ValidationException;
 class ArticleController extends Controller
 {
 
-    function __construct()
+  /*  function __construct()
     {
         $this->middleware('permission:product-list');
         $this->middleware('permission:product-create', ['only' => ['create','store']]);
         $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
-    }
+    }*/
 
     public function showArticles()
     {
