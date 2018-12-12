@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //Role & Permission model is located in vendor/spatie
+        //$role = Role::create(['name' => 'writer']);
+        //$permission = Permission::create(['name' => 'edit articles']);
+        //$role = Role::findById(1);
+        //$permission = Permission::findById(5);
+        //$role->givePermissionTo($permission); //writer can edit articles
+       // auth()->user()->givePermissionTo('edit articles');
+       // $permissions = auth()->user()->getDirectPermissions();
+        //dd($permissions);
         return view('home');
     }
 }
