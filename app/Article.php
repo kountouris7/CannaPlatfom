@@ -18,4 +18,9 @@ class Article extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function addComment($comment)
+    {
+        return $this->comments()->create($comment);
+    }
+
 }

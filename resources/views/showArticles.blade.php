@@ -2,9 +2,12 @@
 @section('content')
     @foreach($articles as $article)
         <div class="container">
-            Title: <strong>{{$article->title}}</strong> <br>
+            Title: <a href="{{route('showCommentArticle', [$article->id])}}"><strong>{{$article->title}}</strong> <br></a>
             Description: <strong>{{$article->description}}</strong> <br>
-            Body: <strong>{{$article->body}} </strong><hr>
+            Body: <strong>{{$article->body}} </strong>
+            <hr>
         </div>
     @endforeach
+
+
 @endsection

@@ -35,13 +35,16 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('assign-role-user/{id}', 'AdminController@assignRoleToUserForm')->name('assignRoleToUserForm');
     Route::post('save-role-user/{id}', 'AdminController@saveRoleToUser')->name('saveRoleToUser');
 });
-
-Route::group(['middleware' => ['role:writer']], function () {
-    //writer
+//writer
+Route::group(['middleware' => ['role:writer|admin']], function () {
     Route::get('write-article', 'ArticleController@writeArticle')->name('writeArticle');
     Route::post('publish-article/{id}', 'ArticleController@store')->name('publishArticle');
 
 });
+Route::get('show-comment/{id}', 'CommentController@showCommentArticle')->name('showCommentArticle');
+Route::post('post-comment/{id}', 'CommentController@saveCommentArticle')->name('saveCommentArticle');
+
+
 
 
 

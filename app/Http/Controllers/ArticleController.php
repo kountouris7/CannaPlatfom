@@ -19,7 +19,7 @@ class ArticleController extends Controller
 
     public function showArticles()
     {
-        $articles = Article::with('writer')
+        $articles = Article::with('writer', 'comments')
                            ->latest()
                            ->get();
 
