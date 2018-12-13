@@ -8,24 +8,19 @@
                         <div class="panel-heading">
                             Title: {{$article->title}}
                         </div>
-
                         <div class="panel-body">
                             {{$article->body}}
                         </div>
-
                     </div>
                 </div>
             </div>
             @foreach($article->comments as $comment)
                 <div class="panel-body">
-
                     {{ $comment->body }}
-
                 </div>
             @endforeach
+            @include('commentArticles')
         </div>
 
     @endforeach
-
-
 @endsection
