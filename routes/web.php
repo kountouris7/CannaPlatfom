@@ -17,6 +17,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('show-articles', 'ArticleController@showArticles')->name('showArticles');
+Route::get('show-full-article/{id}', 'ArticleController@showFullArticle')->name('showFullArticle');
 //admin creating/handling roles and permissions
 Route::group(['middleware' => ['role:admin']], function () {
     //roles
@@ -41,9 +42,11 @@ Route::group(['middleware' => ['role:writer|admin']], function () {
     Route::post('publish-article/{id}', 'ArticleController@store')->name('publishArticle');
 
 });
-Route::get('show-full-article/{id}', 'ArticleController@showFullArticle')->name('showFullArticle');
-Route::post('post-comment/{id}', 'CommentController@saveCommentArticle')->name('saveCommentArticle');
 
+Route::group(['middleware' => 'auth'], function () {
+
+Route::post('post-comment/{id}', 'CommentController@saveCommentArticle')->name('saveCommentArticle');
+});
 
 
 
