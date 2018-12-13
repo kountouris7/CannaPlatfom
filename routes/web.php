@@ -41,7 +41,7 @@ Route::group(['middleware' => ['role:writer|admin']], function () {
     Route::post('publish-article/{id}', 'ArticleController@store')->name('publishArticle');
 
 });
-Route::get('show-comment/{id}', 'CommentController@showCommentArticle')->name('showCommentArticle');
+Route::get('show-full-article/{id}', 'ArticleController@showFullArticle')->name('showFullArticle');
 Route::post('post-comment/{id}', 'CommentController@saveCommentArticle')->name('saveCommentArticle');
 
 

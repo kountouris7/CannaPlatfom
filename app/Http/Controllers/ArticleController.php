@@ -26,6 +26,14 @@ class ArticleController extends Controller
         return view('showArticles', compact('articles'));
     }
 
+    public function showFullArticle($id)
+    {
+        $articles = Article::with('writer', 'comments')->where('id', $id)
+                           ->latest()
+                           ->get();
+
+        return view('showFullArticles', compact('articles'));
+    }
 
     public function writeArticle()
     {

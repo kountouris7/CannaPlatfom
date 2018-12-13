@@ -29,13 +29,6 @@ class CommentController extends Controller
         return back();
     }
 
-    public function showCommentArticle($id)
-    {
-        $comments = Article::with('comments')->where('id', $id)->get();
-
-        return view('commentArticles', compact('comments'));
-    }
-
     public function edit(Comment $comment)
     {
         //
