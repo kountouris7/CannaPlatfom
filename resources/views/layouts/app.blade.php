@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- For Forum Chatter -->
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -76,5 +78,7 @@
             @yield('content')
         </main>
     </div>
+    <!-- For Forum Chatter -->
+    @yield('js')
 </body>
 </html>
