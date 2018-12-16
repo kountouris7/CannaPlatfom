@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('show-articles', 'ArticleController@showArticles')->name('showArticles');
 Route::get('show-full-article/{id}', 'ArticleController@showFullArticle')->name('showFullArticle');
+
 //admin creating/handling roles and permissions
 Route::group(['middleware' => ['role:admin']], function () {
     //roles
@@ -36,6 +37,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('assign-role-user/{id}', 'AdminController@assignRoleToUserForm')->name('assignRoleToUserForm');
     Route::post('save-role-user/{id}', 'AdminController@saveRoleToUser')->name('saveRoleToUser');
 });
+
 //writer
 Route::group(['middleware' => ['role:writer|admin']], function () {
     Route::get('write-article', 'ArticleController@writeArticle')->name('writeArticle');
@@ -44,8 +46,7 @@ Route::group(['middleware' => ['role:writer|admin']], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-
-Route::post('post-comment/{id}', 'CommentController@saveCommentArticle')->name('saveCommentArticle');
+    Route::post('post-comment/{id}', 'CommentController@saveCommentArticle')->name('saveCommentArticle');
 });
 
 

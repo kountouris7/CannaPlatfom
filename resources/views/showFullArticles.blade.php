@@ -2,25 +2,31 @@
 @section('content')
     @foreach($articles as $article)
         <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Title: {{$article->title}}
-                        </div>
-                        <div class="panel-body">
-                            {{$article->body}}
-                        </div>
-                    </div>
+            {{--article text--}}
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">{{$article->title}}</h1>
+                    <span class="flex">
+                               Display Author here
+                            </span>
+                    <p class="lead">  {!!$article->body!!}</p>
                 </div>
             </div>
+
+            {{--Comments section--}}
             @foreach($article->comments as $comment)
-                <div class="panel-body">
-                    {{ $comment->body }}
+                <div class="card-body">
+                    <strong class="flex">
+                        {{$comment->commenter->name}}
+                    </strong> said:
+                    <div class="panel-body">
+                        {{ $comment->body}}
+                    </div>
+                    {{$comment->created_at->diffForHumans()}}
                 </div>
+
             @endforeach
             @include('commentArticles')
         </div>
-
     @endforeach
 @endsection

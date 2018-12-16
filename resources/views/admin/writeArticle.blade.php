@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h1>Write new article</h1></div>
+        {{--<div class="row">--}}
+            {{--<div class="col-md-8 col-md-offset-2">--}}
+                {{--<div class="panel panel-default">--}}
+                    {{--<div class="panel-heading"><h1>Write new article</h1></div>--}}
 
-                    <div class="panel-body">
+                    {{--<div class="panel-body">--}}
                         <form method="POST" action="{{route('publishArticle' ,[auth()->id()])}}">
                             {{ csrf_field() }}
                             <div class="form-group">
@@ -22,7 +22,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="body">Text:</label>
-                                <textarea placeholder="Write something great" class="form-control" id="body" name="body"
+                                <textarea placeholder="Write something great" class="form-control" id="articleContent" name="body"
                                           type="text" required></textarea>
                             </div>
                             <div class="form-group">
@@ -30,8 +30,8 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @endsection
