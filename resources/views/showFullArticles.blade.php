@@ -7,7 +7,7 @@
                 <div class="container">
                     <h1 class="display-4">{{$article->title}}</h1>
                     <span class="flex">
-                               Display Author here
+                               by {{$article->writer->name}}
                             </span>
                     <p class="lead">  {!!$article->body!!}</p>
                 </div>

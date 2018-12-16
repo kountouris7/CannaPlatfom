@@ -5,8 +5,9 @@
             <div class="form-group">
                 <div class="card">
                     {{$user->name}} <a href="{{route('assignRoleToUserForm',[$user->id])}}">Edit</a>
-                    @endforeach
+
                 </div>
             </div>
+        @endforeach
     </div>
 @endsection

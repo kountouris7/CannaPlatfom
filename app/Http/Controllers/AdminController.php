@@ -72,6 +72,7 @@ class AdminController extends Controller
 
     public function userSettings()
     {
+
         $users = User::get();
         return view('admin.userSettings', compact('users'));
 
