@@ -8,6 +8,10 @@ use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
+    public function adminPanel()
+    {
+        return view('admin.adminPanel');
+    }
     public function createRoleForm()
     {
         return view('admin.roles.createRole');

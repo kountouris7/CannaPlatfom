@@ -21,6 +21,8 @@ Route::get('show-full-article/{id}', 'ArticleController@showFullArticle')->name(
 
 //admin creating/handling roles and permissions
 Route::group(['middleware' => ['role:admin']], function () {
+    //admin panel
+    Route::get('admin-panel', 'AdminController@adminPanel')->name('adminPanel');
     //roles
     Route::get('create-role', 'AdminController@createRoleForm')->name('createRoleForm');
     Route::post('save-role', 'AdminController@saveRole')->name('saveRole');
