@@ -3,13 +3,13 @@
     <div class="container">
         {{--<h3>Permissions</h3>--}}
         {{--@foreach($permissions as $permission)--}}
-            {{--<li>{{$permission->name}}</li>--}}
+        {{--<li>{{$permission->name}}</li>--}}
         {{--@endforeach--}}
-{{--<hr>--}}
+        {{--<hr>--}}
         {{--<h3>Roles</h3>--}}
         {{--@foreach($roles as $role)--}}
-                {{--<li>{{$role->name}}</li>--}}
-            {{--@endforeach--}}
+        {{--<li>{{$role->name}}</li>--}}
+        {{--@endforeach--}}
         {!! Form::open(['route' => 'savePermissionsToRole']) !!}
 
         <div class="form-group">
@@ -34,16 +34,17 @@
                     @endforeach
                 </select>
 
-            <div class="form-group">
-                <input type="hidden" name="role" value="{{$role->id}}">
-                <input type="hidden" name="permission" value="{{$permission->id}}">
-                <button type="submit" class="btn btn-primary">Publish Group</button>
+                <div class="form-group">
+                    <input type="hidden" name="role" value="{{$role->id}}">
+                    <input type="hidden" name="permission" value="{{$permission->id}}">
+                    <button type="submit" class="btn btn-primary">Publish Group</button>
+                </div>
             </div>
+            {{--{{ Form::submit('Save Permission') }}--}}
+            {!! Form::close() !!}
         </div>
-        {{--{{ Form::submit('Save Permission') }}--}}
-        {!! Form::close() !!}
-    </div>
 
+    </div>
 
 
 
